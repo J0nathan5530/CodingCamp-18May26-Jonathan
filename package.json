@@ -1,0 +1,13 @@
+{
+  "name": "todo-dashboard",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8",
+    "fast-check": "^3.22.0"
+  }
+}
