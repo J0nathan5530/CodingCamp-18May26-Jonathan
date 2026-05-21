@@ -1,0 +1,407 @@
+/* ============================================================
+   CSS Custom Properties — Light Theme (default)
+   ============================================================ */
+:root {
+  --color-bg: #f5f5f5;
+  --color-surface: #ffffff;
+  --color-border: #e0e0e0;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-accent: #4a6cf7;
+  --color-accent-hover: #3a5ce6;
+  --color-error: #d32f2f;
+  --color-success: #388e3c;
+  --color-completed-text: #9e9e9e;
+  --color-header-bg: #ffffff;
+  --color-banner-bg: #fff3cd;
+  --color-banner-border: #ffc107;
+  --shadow-panel: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --radius-panel: 12px;
+  --radius-btn: 6px;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ============================================================
+   Dark Theme Overrides
+   ============================================================ */
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-surface: #1e1e1e;
+  --color-border: #333333;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #aaaaaa;
+  --color-accent: #7b9ef7;
+  --color-accent-hover: #9ab2f9;
+  --color-error: #ef5350;
+  --color-success: #66bb6a;
+  --color-completed-text: #666666;
+  --color-header-bg: #1e1e1e;
+  --color-banner-bg: #3a2e00;
+  --color-banner-border: #ffc107;
+  --shadow-panel: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   Dashboard Header
+   ============================================================ */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.dashboard-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.theme-toggle-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+/* ============================================================
+   Dashboard Grid — 2×2 layout at 1280×720+
+   ============================================================ */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 24px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ============================================================
+   Panel Base Styles
+   ============================================================ */
+.panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   Shared UI Components
+   ============================================================ */
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.btn--danger {
+  background-color: var(--color-error);
+  color: #ffffff;
+}
+
+.btn--small {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-family: var(--font-family);
+  transition: border-color 0.15s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* Inline error / validation messages */
+.inline-error {
+  color: var(--color-error);
+  font-size: 0.8rem;
+  min-height: 1.2em;
+  display: block;
+}
+
+/* ============================================================
+   Greeting Panel
+   ============================================================ */
+.panel--greeting .greeting-time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.panel--greeting .greeting-date {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.panel--greeting .greeting-message {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.panel--greeting .name-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.panel--greeting .name-form .input {
+  flex: 1;
+}
+
+/* ============================================================
+   Focus Timer Panel
+   ============================================================ */
+.panel--timer {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.panel--timer .timer-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  margin: 8px 0;
+}
+
+.panel--timer .timer-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* ============================================================
+   Task Manager Panel
+   ============================================================ */
+.panel--tasks .task-form {
+  display: flex;
+  gap: 8px;
+}
+
+.panel--tasks .task-form .input {
+  flex: 1;
+}
+
+.panel--tasks .task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.panel--tasks .task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-bg);
+}
+
+.panel--tasks .task-item--completed .task-text {
+  text-decoration: line-through;
+  color: var(--color-completed-text);
+}
+
+.panel--tasks .task-text {
+  flex: 1;
+  font-size: 0.875rem;
+  word-break: break-word;
+}
+
+.panel--tasks .task-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Quick Links Panel
+   ============================================================ */
+.panel--links .link-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.panel--links .link-form-row {
+  display: flex;
+  gap: 8px;
+}
+
+.panel--links .link-form-row .input {
+  flex: 1;
+}
+
+.panel--links .links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.panel--links .link-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.panel--links .link-btn {
+  padding: 6px 12px;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.panel--links .link-btn:hover {
+  opacity: 0.85;
+}
+
+.panel--links .link-delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-error);
+  font-size: 0.9rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.panel--links .link-delete-btn:hover {
+  background-color: var(--color-error);
+  color: #ffffff;
+}
+
+/* ============================================================
+   Storage Warning Banner
+   ============================================================ */
+.storage-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 24px;
+  background-color: var(--color-banner-bg);
+  border-top: 2px solid var(--color-banner-border);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  text-align: center;
+  z-index: 100;
+}
+
+.storage-banner[hidden] {
+  display: none;
+}
+
+/* ============================================================
+   Responsive — ensure panels fit at 1280×720
+   ============================================================ */
+@media (min-width: 1280px) {
+  .dashboard-grid {
+    /* Ensure all four panels are fully visible without scrolling */
+    height: calc(100vh - 57px); /* subtract header height */
+    grid-template-rows: 1fr 1fr;
+  }
+}
