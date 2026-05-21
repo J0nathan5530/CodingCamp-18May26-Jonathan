@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <div class="theme-toggle-area">
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+        🌙 Dark Mode
+      </button>
+      <span id="theme-toggle-error" class="inline-error" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+    <!-- Panel 1: Greeting -->
+    <section id="greeting-panel" class="panel panel--greeting" aria-label="Greeting Panel">
+    </section>
+
+    <!-- Panel 2: Focus Timer -->
+    <section id="focus-timer-panel" class="panel panel--timer" aria-label="Focus Timer">
+    </section>
+
+    <!-- Panel 3: Task Manager -->
+    <section id="task-manager-panel" class="panel panel--tasks" aria-label="Task Manager">
+    </section>
+
+    <!-- Panel 4: Quick Links -->
+    <section id="quick-links-panel" class="panel panel--links" aria-label="Quick Links">
+    </section>
+  </main>
+
+  <!-- Global localStorage unavailability banner (hidden by default) -->
+  <div id="storage-warning-banner" class="storage-banner" role="alert" aria-live="assertive" hidden>
+    ⚠️ Local storage is unavailable. Your data will not be saved between sessions.
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
